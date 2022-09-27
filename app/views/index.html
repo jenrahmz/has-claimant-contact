@@ -1,11 +1,21 @@
-
 {% extends "layout.html" %}
+{% set bodyAttributes = { id: "home" } %}
 
 {% block pageTitle %}
-  Home – GOV.UK Prototype Kit
+  GOV.UK Prototype Kit
 {% endblock %}
 
-{% block content %}
+{% block main %}
+
+{% include "includes/home-header.html" %}
+
+
+<div class="govuk-width-container {{ containerClasses }}">
+
+  <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+
+
+
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -39,6 +49,7 @@
         </li>
       </ul>
     </div>
+  </main>
   </div>
 
 {% endblock %}
