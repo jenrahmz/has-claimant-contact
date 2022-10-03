@@ -30,19 +30,7 @@
              
         
                 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Template
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                    
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="#">
-                        Change<span class="govuk-visually-hidden"> template</span>
-                      </a>
-                    </dd>
-                  </div>
+
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                      From
@@ -54,33 +42,73 @@
                     
                     </dd>
                   </div>
+
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                     Message
+                      Template
                     </dt>
                     <dd class="govuk-summary-list__value">
-                     
+
+                      {% if  data['text'] === 'questionnaire' %}  Questionnaire returned   {% endif %} 
+
+                      {% if  data['text'] === 'booking-tresco' %}   Assessment booked   {% endif %} 
+            
+                      {% if  data['text'] === 'booking-summerhill' %}   Assessment booked   {% endif %} 
+            
+                      {% if  data['text'] === 'booking-phone' %}   Assessment booked   {% endif %} 
+            
+                      {% if  data['text'] === 'reminder' %}   Assessment reminder   {% endif %} 
+                    
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="#">
-                        Change<span class="govuk-visually-hidden"> message</span>
+                      <a class="govuk-link" href="select-template">
+                        Change<span class="govuk-visually-hidden"> template</span>
                       </a>
                     </dd>
                   </div>
+
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                       Mobile number
                     </dt>
                     <dd class="govuk-summary-list__value">
                       <p class="govuk-body"> </p>
-                     
+                      {{ data['mobile-number'] }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="#">
+                      <a class="govuk-link" href="enter-fields">
                         Change<span class="govuk-visually-hidden"> mobile number</span>
                       </a>
                     </dd>
                   </div>
+                 
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                     Message
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+
+
+                      {% if  data['text'] === 'questionnaire' %} DWP Health Assessment: We have received your ESA health questionnaire and are working on your claim. You do not need to do anything.   {% endif %} 
+
+                      {% if  data['text'] === 'booking-tresco' %}  DWP Health Assessment: Hello ((Name)). You have an appointment booked at Tresco House Assessment Centre, NW1 6UH on ((Date)) at ((Time)). Please call 0800 015 2561 if you cannot attend. Thank you. ((Case manager Name))   {% endif %} 
+            
+                      {% if  data['text'] === 'booking-summerhill' %} DWP Health Assessment: Hello ((Name)). You have an appointment booked at DWP Summerhill Assessment Centre, B1 3RB on ((date)) at ((time)). Please call us on 0800 015 2561 if you cannot attend. Thank you. ((Case Manager))   {% endif %} 
+            
+                      {% if  data['text'] === 'booking-phone' %}  DWP Health Assessment: Hello (Name). You have a telephone appointment booked on (Date) at (Time). Please call 0800 182 2012 if you cannot attend. Thank you. (Case manager Name)  {% endif %} 
+            
+                      {% if  data['text'] === 'reminder' %}  Assessment reminder text goes here  {% endif %} 
+
+
+                     
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="enter-fields">
+                        Change<span class="govuk-visually-hidden"> message</span>
+                      </a>
+                    </dd>
+                  </div>
+                 
                 </dl>
         
                
@@ -95,7 +123,7 @@
                   </button>
         
                 </form>
-       <p>  <a href="/">Cancel</a> </p>
+       <p>  <a href="referral">Cancel</a> </p>
               </div>
             </div>
           </main>
