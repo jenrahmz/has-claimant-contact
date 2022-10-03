@@ -91,11 +91,11 @@
 
                       {% if  data['text'] === 'questionnaire' %} DWP Health Assessment: We have received your ESA health questionnaire and are working on your claim. You do not need to do anything.   {% endif %} 
 
-                      {% if  data['text'] === 'booking-tresco' %}  DWP Health Assessment: Hello ((Name)). You have an appointment booked at Tresco House Assessment Centre, NW1 6UH on ((Date)) at ((Time)). Please call 0800 015 2561 if you cannot attend. Thank you. ((Case manager Name))   {% endif %} 
+                      {% if  data['text'] === 'booking-tresco' %}  DWP Health Assessment: Hello {{ data['text-message-name'] }}. You have an appointment booked at Tresco House Assessment Centre, NW1 6UH on {{ data['text-message-day'] }} {{ data['text-message-month'] }} {{ data['text-message-year'] }} at {{ data['text-message-time'] }}. Please call 0800 015 2561 if you cannot attend. Thank you. {{ data['text-message-cm-name'] }}   {% endif %} 
             
-                      {% if  data['text'] === 'booking-summerhill' %} DWP Health Assessment: Hello ((Name)). You have an appointment booked at DWP Summerhill Assessment Centre, B1 3RB on ((date)) at ((time)). Please call us on 0800 015 2561 if you cannot attend. Thank you. ((Case Manager))   {% endif %} 
+                      {% if  data['text'] === 'booking-summerhill' %} DWP Health Assessment: Hello {{ data['text-message-name'] }}. You have an appointment booked at DWP Summerhill Assessment Centre, B1 3RB on {{ data['text-message-day'] }} {{ data['text-message-month'] }} {{ data['text-message-year'] }}  at {{ data['text-message-time'] }}. Please call us on 0800 015 2561 if you cannot attend. Thank you. {{ data['text-message-cm-name'] }}  {% endif %} 
             
-                      {% if  data['text'] === 'booking-phone' %}  DWP Health Assessment: Hello (Name). You have a telephone appointment booked on (Date) at (Time). Please call 0800 182 2012 if you cannot attend. Thank you. (Case manager Name)  {% endif %} 
+                      {% if  data['text'] === 'booking-phone' %}  DWP Health Assessment: Hello {{ data['text-message-name'] }}. You have a telephone appointment booked on {{ data['text-message-day'] }} {{ data['text-message-month'] }} {{ data['text-message-year'] }}  at {{ data['text-message-time'] }}. Please call 0800 182 2012 if you cannot attend. Thank you. {{ data['text-message-cm-name'] }}  {% endif %} 
             
                       {% if  data['text'] === 'reminder' %}  Assessment reminder text goes here  {% endif %} 
 
