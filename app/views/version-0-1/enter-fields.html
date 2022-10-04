@@ -12,23 +12,42 @@
 
   <div class="govuk-width-container {{ containerClasses }}">
 
-    <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+    <a href="/version-0-1/select-template" class="govuk-back-link">Back</a>
 
 
     <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
 
       <div class="govuk-grid-row">
 
+        {% if errorlist %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: errorlist
+        }) }}
+
+        {% endif %}
+
       <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">Complete fields</h1>
         
 
-        <form action="check-answers" method="post" class="form">
+        <form action="#" method="post" class="form">
 
-          <h2 class="govuk-heading-m">Enter mobile number</h2>
-
-          <input class="govuk-input govuk-input--width-10" id="mobile-number" name="mobile-number" type="text" spellcheck="false" aria-describedby="mobile-number-hint" inputmode="numeric" value="{{ data['mobile-number'] }}" autocomplete="off">
-
+          {{ 
+            govukInput({
+              label: {
+                text: "Mobile number",
+                classes: "govuk-label--m"
+              },
+              id: "mobile-number",
+              name: "mobile-number",
+              errorMessage: { 
+                text: error['mobile-number'].text
+              } if error['mobile-number'],
+              value: data['mobile-number'],
+              classes: 'govuk-input--width-10'
+            })
+          }}
           <br><br><br>
    
 
