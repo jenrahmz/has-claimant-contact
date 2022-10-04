@@ -32,6 +32,11 @@
 {% from "govuk/components/textarea/macro.njk"            import govukTextarea %}
 {% from "govuk/components/warning-text/macro.njk"        import govukWarningText %}
 
+
+{# DWP components #}
+{% from "internal-service-header/macro.njk" import dwpHeader %}
+{% from "internal-service-footer/macro.njk" import dwpFooter %}
+
 {% block head %}
   {% include "includes/head.html" %}
 {% endblock %}
@@ -42,22 +47,29 @@
 
 {% block header %}
   {# Set serviceName in config.js. #}
-  {{ govukHeader({
+  {{ dwpHeader({
     homepageUrl: "/",
-    serviceName: serviceName,
-    serviceUrl: "/",
-    containerClasses: "govuk-width-container"
+    name: serviceName,
+    container: true
   }) }}
 {% endblock %}
 
 {% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
 
-{
-  href: "/prototype-admin/clear-data",
-  text: "Clear data"
-}
-
 {% block footer %}
+
+{{ 
+  dwpFooter({
+    meta: {
+      items: [
+        {
+          href: "/prototype-admin/clear-data",
+          text: "Clear data"
+        }
+      ]
+    }
+  })
+}}
 
 {% endblock %}
 
