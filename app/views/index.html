@@ -18,36 +18,52 @@
 
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">
-        Prototype your service using GOV.UK Prototype Kit
-        <span class="govuk-caption-xl">{{releaseVersion}}</span>
-      </h1>{{releaseVersion | log }}
+
+    <div class="govuk-grid-column-one-quarter">
+      <ul class="govuk-list">
+        <li><a href="#current" class="govuk-link--no-visited-state govuk-link--no-underline">Current</a></li>
+       
+        <li><a href="#archive" class="govuk-link--no-visited-state govuk-link--no-underline">Archived</a></li>
+      </ul>
+    </div>
+
+
+    <div class="govuk-grid-column-three-quarters">
+      <h1 class="govuk-heading-l" id="current">
+        Current design work
+        <span class="govuk-caption-l">Last updated: Oct 2022</span>
+      </h1>
+
+     
+      <p>
+        This prototype represents the current design thinking on Team Royal Blue. <br> <a href="https://dwpdigital.atlassian.net/browse/HTRB-1660" target="_blank">Jira epic</a>
+
+      </p>
+
+      <h3 class="govuk-heading-m"><a href="version-0-1/referral">Version 0.1</a></h3>
+
+     
+<!-- 
+      <hr>
+<br>
+      <h1 class="govuk-heading-l" id="archived">
+       Archived work
+      </h1>
       <p>
         This kit lets you rapidly create HTML prototypes of GOV.UK services.
       </p>
 
-      <p>
-        It contains all you need to prototype anything from simple static pages to complex, data-driven transactions.
-      </p>
+    -->
 
-      <h2 class="govuk-heading-m">About this page</h2>
-
-      <p>We recommend you add links to your prototype to this page, rather than delete it.
-        You'll find this page in the kit at '/app/views/index.html'.</p>
-
-      <p>You can change the service name by editing the file '/app/config.js'.</p>
-
-      <h2 class="govuk-heading-m">Examples and documentation</h2>
+      <!-- 
+      <h2 class="govuk-heading-m">Further prototype info</h2>
 
       <ul class="govuk-list govuk-list--bullet">
         <li>
-          <a href="/docs/tutorials-and-examples">Tutorials and templates</a>
+          <a href="/proto-info">Prototype examples and docs</a>
         </li>
-        <li>
-          <a href="https://design-system.service.gov.uk">GOV.UK Design System</a>
-        </li>
-      </ul>
+        
+      </ul>-->
     </div>
   </main>
   </div>

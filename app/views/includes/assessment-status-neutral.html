@@ -1,16 +1,49 @@
-<section class="key-details-bar" role="contentinfo" aria-label="Key details">
-    <dl class="key-details-bar__key-details">
-      <div class="key-details-bar__top-block">
-        <dt class="govuk-visually-hidden">Name:</dt>
-        <dt class="key-details-bar__name">Jayne Smith</dt>
-  
-        <dt class="govuk-visually-hidden">National Insurance number:</dt>
-        <dt class="key-details-bar__nino">RN 65 43 21 X</dt>
-      </div>
-  
-      <div class="key-details-bar__bottom-block">
-        <dt>Date of birth: 31 December 1997</dt>
-       <!-- <dd>31 December 1997</dd>--> 
-      </div>
+{% from "key-details-bar/macro.njk" import dwpKeyDetailsBar %}
+
+<section class="dwp-key-details-bar" aria-label="Key details">
+  <div class="dwp-key-details-bar__key-details">
+    <dl class="dwp-key-details-bar__top-block">
+      <dt class="govuk-visually-hidden">Name:</dt>
+      <dd class="dwp-key-details-bar__primary">Jayne Smith</dd>
+      <dt class="govuk-visually-hidden">National Insurance number:</dt>
+      <dd class="dwp-key-details-bar__secondary">RN 65 43 21 X</dd>
+      <dt class="govuk-visually-hidden">Claim status:</dt>
+      <dd class="govuk-table__cell dwp-key-details-bar__status">
+        <strong class="govuk-tag dwp-key-details-bar__status--dwp-default">
+          Assessment Booked
+        </strong>
+      </dd>
     </dl>
-  </section>
+
+
+    <dl class="dwp-key-details-bar__bottom-block">
+      <dt>Date of birth:</dt>
+      <dd>20 January 1987</dd>
+    </dl>
+  </div>
+</section>
+
+{# nunjucks version
+{{ 
+  dwpKeyDetailsBar({
+    primaryIdentifier: {
+    text: 'Name:',
+    value: 'Jayne Smith'
+    },
+  secondaryIdentifier: {
+    text: 'National Insurance number:',
+    value: 'RN 65 43 21 X'
+  },
+  status: {
+    text: 'Claim status:',
+    value: 'Assessment Booked'
+  },
+  additionalData: [
+    {
+      value: "20 January 1987",
+      text: "Date of birth:"
+    }
+  ]
+  }) 
+}}
+#}
