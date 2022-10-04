@@ -5,7 +5,6 @@ const router = express.Router()
 
 
 function checkEnterFieldsErrors(data) {
-    console.log(data);
     const error = {}
     if (data['mobile-number'] === '') {
         error['mobile-number'] = {
