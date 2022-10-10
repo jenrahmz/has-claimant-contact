@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-booked.html" %}
+
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+    <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+
+      <div class="govuk-grid-row">
+
+          
+
+
+
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Select template</h1>
+
+        <form action="enter-fields" method="post" class="form">
+
+
+          <fieldset class="govuk-fieldset">
+                 
+            <div class="govuk-radios govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="text-questionnaire" name="text" type="radio" value="questionnaire" {{ checked("text", "questionnaire") }}>
+                <label class="govuk-label govuk-radios__label" for="text-questionnaire">
+                  Questionnaire returned
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="text-booking-phone" name="text" type="radio" value="booking-phone" {{ checked("text", "booking-phone") }}>
+                <label class="govuk-label govuk-radios__label" for="text-booking-phone">
+                  Assessment booked </label>
+                  <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                    Telephone call</div>
+               
+              </div>
+
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="text-booking-tresco" name="text" type="radio" value="booking-tresco" {{ checked("text", "booking-tresco") }}>
+                <label class="govuk-label govuk-radios__label" for="text-booking-tresco">
+                  Assessment booked </label>
+                  <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                    Face to face, Tresco House Assessment Centre</div>
+               
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="text-booking-summerhill" name="text" type="radio" value="booking-summerhill" {{ checked("text", "booking-summerhill") }}>
+                <label class="govuk-label govuk-radios__label" for="text-booking-summerhill">
+                  Assessment booked </label>
+                  <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                    Face to face, Summerhill Assessment Centre</div>
+               
+              </div>
+
+
+            
+            <!--  <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="text-reminder" name="text" type="radio" value="reminder" {{ checked("text", "reminder") }}>
+                <label class="govuk-label govuk-radios__label" for="text-reminder">
+                  Assessment reminder
+                </label>
+              </div> -->
+
+             
+              </div>
+            </fieldset>
+           <br>
+               
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+      
+      </form>
+              
+             
+</div>
+
+             <div class="govuk-grid-column-one-third">
+            
+
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}

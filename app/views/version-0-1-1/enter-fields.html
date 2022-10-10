@@ -1,0 +1,166 @@
+{% extends "layout.html" %}
+{% set bodyAttributes = { id: "assess" } %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+
+{% include "includes/assessment-status-booked.html" %}
+
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+    <a href="/version-0-1-1/select-template" class="govuk-back-link">Back</a>
+
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+
+      <div class="govuk-grid-row">      
+      <div class="govuk-grid-column-two-thirds">
+
+        {% if errorlist %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: errorlist
+        }) }}
+
+        {% endif %}
+
+
+        <h1 class="govuk-heading-l">Complete fields</h1>
+        
+        <form action="check-answers" method="post" class="form">
+          {{ 
+            govukInput({
+              label: {
+                text: "Mobile number",
+                classes: "govuk-label--m"
+              },
+              id: "mobile-number",
+              name: "mobile-number",
+              errorMessage: { 
+                text: error['mobile-number'].text
+              } if error['mobile-number'],
+              value: data['mobile-number'],
+              classes: 'govuk-input--width-10'
+            })
+          }}
+      
+   
+
+          <h2 class="govuk-heading-m">
+          {% if  data['text'] === 'questionnaire' %}  Questionnaire returned   {% endif %} 
+
+          {% if  data['text'] === 'booking-tresco' %}   Assessment booked   {% endif %} 
+
+          {% if  data['text'] === 'booking-summerhill' %}   Assessment booked   {% endif %} 
+
+          {% if  data['text'] === 'booking-phone' %}   Assessment booked   {% endif %} 
+
+          {% if  data['text'] === 'reminder' %}   Assessment reminder   {% endif %}  text message
+          </h2>
+
+
+          <div class="govuk-inset-text">
+          
+
+            {% if  data['text'] === 'questionnaire' %} DWP Health Assessment: We have received your ESA health questionnaire and are working on your claim. You do not need to do anything.   {% endif %} 
+
+            {% if  data['text'] === 'booking-tresco' %}  DWP Health Assessment: Hello <span style="background-color:#ffdd02;">((Name))</span>. You have an appointment booked at Tresco House Assessment Centre, NW1 6UH on <span style="background-color:#ffdd02;">((date))</span> at <span style="background-color:#ffdd02;">((time))</span>. Please call 0800 015 2561 if you cannot attend. Thank you. <span style="background-color:#ffdd02;">((Case manager name))</span>   {% endif %} 
+  
+            {% if  data['text'] === 'booking-summerhill' %} DWP Health Assessment: Hello <span style="background-color:#ffdd02;">((Name))</span>. You have an appointment booked at DWP Summerhill Assessment Centre, B1 3RB on <span style="background-color:#ffdd02;">((date))</span> at <span style="background-color:#ffdd02;">((time))</span>. Please call us on 0800 015 2561 if you cannot attend. Thank you. <span style="background-color:#ffdd02;">((Case manager name))</span>   {% endif %} 
+  
+            {% if  data['text'] === 'booking-phone' %}  DWP Health Assessment: Hello <span style="background-color:#ffdd02;">((Name))</span>. You have a telephone appointment booked on <span style="background-color:#ffdd02;">((date))</span> at <span style="background-color:#ffdd02;">((time))</span>. Please call 0800 182 2012 if you cannot attend. Thank you. <span style="background-color:#ffdd02;">((Case manager name))</span>  {% endif %} 
+  
+            {% if  data['text'] === 'reminder' %}  Assessment reminder text goes here  {% endif %} 
+
+
+          </div>
+
+
+          {% if  (data['text'] != 'questionnaire') %}
+          <h2 class="govuk-heading-m">Fill in the fields</h2>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label"> 
+              Name
+            </label>          
+                 
+          <input class="govuk-input govuk-!-width-full-width" id="action-1" name="text-message-name" type="text" value="{{ data['text-message-name'] }}" autocomplete="off">
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label"> 
+             Date
+            </label>          
+                 
+        
+
+          <div class="govuk-date-input" >
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="text-message-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="text-message-day" name="text-message-day" value="{{ data['text-message-day'] }}" type="text" pattern="[0-9]*" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="text-message-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="text-message-month" name="text-message-month" value="{{ data['text-message-month'] }}" type="text" pattern="[0-9]*" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="text-message-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="text-message-year" name="text-message-year" value="{{ data['text-message-year'] }}" type="text" pattern="[0-9]*" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+
+
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label"> 
+              Time
+            </label>          
+                 
+          <input class="govuk-input govuk-!-width-one-quarter" id="action-1" name="text-message-time" type="text" value="{{ data['text-message-time'] }}" autocomplete="off">
+          </div>
+
+
+          <div class="govuk-form-group">
+            <label class="govuk-label"> 
+              Case manager name
+            </label>          
+                 
+          <input class="govuk-input govuk-!-width-full-width" id="action-1" name="text-message-cm-name" type="text" value="{{ data['text-message-cm-name'] }}" autocomplete="off">
+          </div>
+
+          {% endif %} 
+               
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+      
+      </form>
+              
+             
+</div>
+
+             <div class="govuk-grid-column-one-third">
+            
+
+
+            </div>
+        </div>
+
+    </main>
+  </div>
+{% endblock %}
