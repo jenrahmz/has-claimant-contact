@@ -12,7 +12,7 @@
 
   <div class="govuk-width-container {{ containerClasses }}">
 
-    <a href="/version-0-1/select-template" class="govuk-back-link">Back</a>
+    <a href="/version-0-1/referral" class="govuk-back-link">Back</a>
 
 
     <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
@@ -51,15 +51,9 @@
    
 
           <h2 class="govuk-heading-m">
-          {% if  data['text'] === 'questionnaire' %}  Questionnaire returned   {% endif %} 
+  Questionnaire returned  
 
-          {% if  data['text'] === 'booking-tresco' %}   Assessment booked   {% endif %} 
-
-          {% if  data['text'] === 'booking-summerhill' %}   Assessment booked   {% endif %} 
-
-          {% if  data['text'] === 'booking-phone' %}   Assessment booked   {% endif %} 
-
-          {% if  data['text'] === 'reminder' %}   Assessment reminder   {% endif %}  text message
+           text message
           </h2>
 
 
